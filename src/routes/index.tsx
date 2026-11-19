@@ -26,7 +26,7 @@ const ROTATION_SECONDS = 24;
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
     { title: "Flavour Sweets & Bakers: Mithai, Cakes & Samosas in Soan Garden" },
-    { name: "description", content: "Fresh mithai, cakes and samosas on Main Double Road, H Block, Soan Garden, Islamabad. Open 7 AM to 1:30 AM daily. Order by call or WhatsApp." },
+    { name: "description", content: "Traditional Pakistani sweets, fresh bakery items, fast food and refreshments in Soan Garden, Islamabad. Halwa Puri breakfast every Sunday. Open 7 AM to 1:30 AM daily." },
     { property: "og:title", content: "Flavour Sweets & Bakers | Soan Garden, Islamabad" },
     { property: "og:description", content: "Fresh mithai, cakes and samosas in Soan Garden, Islamabad." },
     { property: "og:type", content: "website" },
@@ -58,11 +58,11 @@ function Index() {
     <header className="sticky top-0 z-40 border-b border-[#D7AD75]/25 bg-[#FBF5EA]/95 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 lg:px-8">
         <a href="#top" aria-label="Flavour Sweets & Bakers home" className="w-[156px] shrink-0 sm:w-[190px]"><img src="/flavour-logo.svg" alt="Flavour Sweets & Bakers" className="h-auto w-full"/></a>
-        <nav className="hidden items-center gap-7 text-[13px] font-extrabold text-[#442832] lg:flex"><a href="#about" className="hover:text-[#A46C3D]">Our Products</a><a href="#menu" className="hover:text-[#A46C3D]">Menu</a><a href="#orders" className="hover:text-[#A46C3D]">Cakes & Orders</a><a href="#photos" className="hover:text-[#A46C3D]">Photos</a><a href="#find-us" className="hover:text-[#A46C3D]">Find Us</a></nav>
+        <nav className="hidden items-center gap-7 text-[13px] font-extrabold text-[#442832] lg:flex"><a href="#welcome" className="hover:text-[#A46C3D]">About</a><a href="#about" className="hover:text-[#A46C3D]">Our Products</a><a href="#menu" className="hover:text-[#A46C3D]">Menu</a><a href="#orders" className="hover:text-[#A46C3D]">Cakes & Orders</a><a href="#photos" className="hover:text-[#A46C3D]">Photos</a><a href="#find-us" className="hover:text-[#A46C3D]">Find Us</a></nav>
         <a href={phone} onClick={()=>track("click_call","header","header")} className="hidden min-h-11 items-center gap-2 rounded-full bg-[#633047] px-5 text-sm font-bold text-white md:inline-flex"><Phone size={16}/> +92 306 5833000</a>
         <button aria-label="Toggle menu" onClick={()=>setOpen(!open)} className="rounded-lg border border-[#633047]/20 p-2 text-[#633047] lg:hidden"><MenuIcon/></button>
       </div>
-      {open&&<nav className="grid gap-1 border-t border-[#633047]/10 bg-[#FBF5EA] px-5 py-3 text-sm font-bold lg:hidden"><a onClick={()=>setOpen(false)} className="rounded-lg p-3" href="#about">Our Products</a><a onClick={()=>setOpen(false)} className="rounded-lg p-3" href="#menu">Menu</a><a onClick={()=>setOpen(false)} className="rounded-lg p-3" href="#orders">Cakes & Orders</a><a onClick={()=>setOpen(false)} className="rounded-lg p-3" href="#photos">Photos</a><a onClick={()=>setOpen(false)} className="rounded-lg p-3" href="#find-us">Find Us</a></nav>}
+      {open&&<nav className="grid gap-1 border-t border-[#633047]/10 bg-[#FBF5EA] px-5 py-3 text-sm font-bold lg:hidden"><a onClick={()=>setOpen(false)} className="rounded-lg p-3" href="#welcome">About</a><a onClick={()=>setOpen(false)} className="rounded-lg p-3" href="#about">Our Products</a><a onClick={()=>setOpen(false)} className="rounded-lg p-3" href="#menu">Menu</a><a onClick={()=>setOpen(false)} className="rounded-lg p-3" href="#orders">Cakes & Orders</a><a onClick={()=>setOpen(false)} className="rounded-lg p-3" href="#photos">Photos</a><a onClick={()=>setOpen(false)} className="rounded-lg p-3" href="#find-us">Find Us</a></nav>}
     </header>
 
     <section className="relative isolate overflow-hidden bg-[#32131F] text-[#FBF5EA]">
@@ -98,6 +98,24 @@ function Index() {
       <InfoTile icon={<Clock3/>} title="Opening hours" detail="7 AM – 1:30 AM daily"/>
       <InfoTile icon={<CreditCard/>} title="Payments" detail="Cash, card, JazzCash, Easypaisa"/>
       <InfoTile icon={<Truck/>} title="Delivery" detail="[CONFIRM AREA & CHARGES]"/>
+    </section>
+
+    <section id="welcome" className="mx-auto max-w-7xl px-5 pt-16 lg:px-8 lg:pt-20">
+      <div className="grid gap-10 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
+        <div>
+          <p className="text-[11px] font-extrabold uppercase tracking-[.25em] text-[#A46C3D]">Welcome to</p>
+          <h2 className="mt-3 font-serif text-4xl font-bold leading-tight text-[#633047] sm:text-5xl">Flavour Sweets &amp; Bakers</h2>
+          <DecorativeRule/>
+          <p className="mt-6 text-[15px] leading-8 text-[#5A4E49]">{shop.description}</p>
+          <p className="mt-6 font-serif text-2xl font-bold italic text-[#633047]">“{shop.tagline}”</p>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <WelcomeCard icon={<Cookie/>} title="Traditional Sweets" text="Barfi, Rasgulla, Gulab Jamun and Motichoor Ladoo."/>
+          <WelcomeCard icon={<CakeSlice/>} title="Fresh Bakery" text="Butter Biscuits, Rusk, Cakes, Bread and much more."/>
+          <WelcomeCard icon={<Soup/>} title="Fast Food & Refreshments" text="Burgers, Shawarma, French Fries, Samosas, Pakoras, Jalebi, Dahi Bhallay, Chana Chaat and Gol Gappay."/>
+          <WelcomeCard icon={<Coffee/>} title="Sunday Breakfast" text="Traditional Halwa Puri breakfast, served every Sunday."/>
+        </div>
+      </div>
     </section>
 
     <section id="about" className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-20">
@@ -163,6 +181,7 @@ function ProductCarousel(){
     </div>)}</div>;
 }
 
+function WelcomeCard({icon,title,text}:{icon:React.ReactNode;title:string;text:string}){return <div className="rounded-2xl border border-[#D7AD75]/45 bg-[#FBF5EA] p-5 shadow-sm"><span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[#633047] text-[#E5BD80]">{icon}</span><h3 className="mt-4 font-serif text-xl font-bold text-[#633047]">{title}</h3><p className="mt-2 text-[13px] leading-6 text-[#665B55]">{text}</p></div>}
 function HeroMini({icon,title,sub}:{icon:React.ReactNode;title:string;sub:string}){return <div className="flex flex-col items-center gap-2 border-r border-[#D7AD75]/20 px-2 text-center last:border-0"><span className="text-[#D7AD75]">{icon}</span><span className="text-[10px] font-extrabold leading-tight text-[#FBF5EA] sm:text-xs">{title}<br/>{sub}</span></div>}
 function SweetIllustration({kind}:{kind:"mithai"|"cake"|"samosa"}){return <div className="flex h-20 w-20 items-center justify-center rounded-2xl border border-[#D7AD75]/50 bg-gradient-to-br from-[#E9C58E] to-[#A66A42] text-[#633047] shadow-xl sm:h-28 sm:w-28">{kind==="cake"?<CakeSlice size={52} strokeWidth={1.2}/>:kind==="mithai"?<Cookie size={52} strokeWidth={1.2}/>:<Croissant size={52} strokeWidth={1.2}/>}</div>}
 function InfoTile({icon,title,detail}:{icon:React.ReactNode;title:string;detail:string}){return <div className="flex items-center gap-3 bg-[#633047] px-4 py-5 text-[#FBF5EA] sm:px-6"><span className="text-[#E5BD80]">{icon}</span><div><p className="text-[11px] font-extrabold">{title}</p><p className="mt-1 text-[10px] leading-4 text-white/75">{detail}</p></div></div>}
