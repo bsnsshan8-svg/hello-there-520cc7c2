@@ -1,0 +1,14 @@
+Upload your transparent product images into this folder using these exact filenames:
+
+- cake.webp
+- mithai.webp
+- samosa.webp
+- savouries.webp
+
+Recommended: transparent-background PNG or WebP, square canvas (around 800 x 800 px), product centered with clear space around it. If using PNG, transparency is supported by the browser. The hero carousel uses these paths:
+  /products/cake.webp
+  /products/mithai.webp
+  /products/samosa.webp
+  /products/savouries.webp
+
+Replace the placeholder cards by adding the files with the exact names above. No code changes are needed.
