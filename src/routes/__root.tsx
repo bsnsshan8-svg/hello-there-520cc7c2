@@ -81,14 +81,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Flavour Sweets & Bakers | Soan Garden, Islamabad" },
+      { name: "description", content: "Fresh mithai, cakes and samosas on Main Double Road, H Block, Soan Garden, Islamabad. Open 7 AM to 1:30 AM daily. Order by call or WhatsApp." },
+      { name: "author", content: "Flavour Sweets & Bakers" },
+      { property: "og:title", content: "Flavour Sweets & Bakers | Soan Garden, Islamabad" },
+      { property: "og:description", content: "Fresh mithai, cakes and samosas in Soan Garden, Islamabad." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      
     ],
     links: [
       {
