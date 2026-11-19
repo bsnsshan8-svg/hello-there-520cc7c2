@@ -69,8 +69,8 @@ function Index() {
       <div className="absolute inset-0 bakery-pattern opacity-30"/>
       <div className="absolute -right-24 top-0 h-[520px] w-[520px] rounded-full border border-[#D7AD75]/20"/>
       <div className="absolute -right-12 top-12 h-[420px] w-[420px] rounded-full border border-[#D7AD75]/15"/>
-      <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-5 py-14 sm:py-20 md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_.95fr] lg:px-8 lg:py-20">
-        <div className="relative z-10">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-6 px-5 py-10 sm:py-20 md:grid-cols-[1fr_1fr] md:gap-8 lg:grid-cols-[1fr_.95fr] lg:px-8 lg:py-20">
+        <div className="relative z-10 order-2 md:order-1">
           <div className="mb-6 inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[.24em] text-[#D7AD75]"><span className="h-px w-8 bg-[#D7AD75]"/> Mithai · Bakery · Refreshments</div>
           <h1 className="max-w-2xl font-serif text-5xl font-bold leading-[.99] tracking-tight sm:text-6xl lg:text-[4.5rem]">A little sweetness.<br/><em className="text-[#E5BD80]">A lot of flavour.</em></h1>
           <p className="mt-6 max-w-xl text-base leading-8 text-[#F6E7D2]/85 sm:text-lg">Fresh mithai, cakes and samosas in Soan Garden, Islamabad. Find Flavour Sweets & Bakers on H Block Main Double Road.</p>
@@ -80,7 +80,7 @@ function Index() {
           <div className="mt-9 flex flex-wrap gap-3"><ActionLink href={phone} kind="gold" event="click_call" label="hero" section="hero"><Phone size={17}/> Call now</ActionLink><ActionLink href={wa} kind="light" event="click_whatsapp" label="general" section="hero"><MessageCircle size={17}/> WhatsApp <span className="text-[10px]">[CONFIRM NUMBER]</span></ActionLink><ActionLink href={directions} kind="outline" event="click_directions" label="hero" section="hero"><MapPin size={17}/> Get directions</ActionLink></div>
           <div className="mt-6 flex flex-wrap items-center gap-3 text-xs font-semibold text-[#F6E7D2]/80"><span className={`rounded-full px-3 py-2 ${isOpen?"bg-emerald-100 text-emerald-900":"bg-white/10 text-[#F6E7D2]"}`}>{isOpen?"● Open now":"● Closed right now"}</span><span>Every day · 7 AM – 1:30 AM</span><span className="text-[#E5BD80]">Friday: [CONFIRM]</span></div>
         </div>
-        <div className="relative mx-auto flex w-full max-w-[590px] items-center justify-center py-5 sm:py-8">
+        <div className="relative order-1 mx-auto flex w-full max-w-[590px] items-center justify-center py-1 sm:py-8 md:order-2">
           <div className="hero-product-orbit" aria-label="Four bakery products revolving in a 3D circle">
             <div className="hero-product-orbit-glow"/>
             <div className="hero-product-orbit-ring hero-product-orbit-ring-a"/>
