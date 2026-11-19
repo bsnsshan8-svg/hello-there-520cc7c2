@@ -60,21 +60,7 @@ function Index() {
           <div className="mt-9 flex flex-wrap gap-3"><ActionLink href={phone} kind="gold" event="click_call" label="hero" section="hero"><Phone size={17}/> Call now</ActionLink><ActionLink href={wa} kind="light" event="click_whatsapp" label="general" section="hero"><MessageCircle size={17}/> WhatsApp <span className="text-[10px]">[CONFIRM NUMBER]</span></ActionLink><ActionLink href={directions} kind="outline" event="click_directions" label="hero" section="hero"><MapPin size={17}/> Get directions</ActionLink></div>
           <div className="mt-6 flex flex-wrap items-center gap-3 text-xs font-semibold text-[#F6E7D2]/80"><span className={`rounded-full px-3 py-2 ${isOpen?"bg-emerald-100 text-emerald-900":"bg-white/10 text-[#F6E7D2]"}`}>{isOpen?"● Open now":"● Closed right now"}</span><span>Every day · 7 AM – 1:30 AM</span><span className="text-[#E5BD80]">Friday: [CONFIRM]</span></div>
         </div>
-        <div className="relative mx-auto w-full max-w-[590px]">
-          <div className="absolute -inset-4 rounded-[48%_48%_38%_38%] border border-[#D7AD75]/35"/>
-          <div className="relative overflow-hidden rounded-[46%_46%_2rem_2rem] border-[7px] border-[#D7AD75]/70 bg-gradient-to-br from-[#6E3545] via-[#4B1F30] to-[#24121B] p-5 shadow-[0_30px_80px_rgba(0,0,0,.35)] sm:p-8">
-            <div className="absolute inset-0 opacity-30" style={{backgroundImage:"radial-gradient(#D7AD75 1px, transparent 1px)",backgroundSize:"18px 18px"}}/>
-            <div className="relative flex min-h-[350px] flex-col items-center justify-center text-center sm:min-h-[430px]">
-              <img src="/flavour-logo-light.svg" alt="Flavour Sweets & Bakers" className="mb-7 w-[78%] max-w-[340px]"/>
-              <div className="flex items-end justify-center gap-2 sm:gap-4">
-                <SweetIllustration kind="mithai"/><SweetIllustration kind="cake"/><SweetIllustration kind="samosa"/>
-              </div>
-              <p className="mt-7 font-serif text-2xl font-semibold italic text-[#F6E7D2] sm:text-3xl">Made for your moments</p>
-              <p className="mt-2 text-[10px] font-bold uppercase tracking-[.2em] text-[#D7AD75]">Soan Garden · Islamabad</p>
-            </div>
-          </div>
-          <div className="absolute -bottom-5 -left-1 rounded-2xl border border-[#D7AD75]/40 bg-[#E5BD80] px-5 py-3 text-[#32131F] shadow-xl sm:-left-8"><span className="block font-serif text-xl font-bold">Sweeten the day</span><span className="text-[10px] font-extrabold uppercase tracking-wider">Flavour Sweets & Bakers</span></div>
-        </div>
+        <div className="relative mx-auto flex w-full max-w-[590px] items-center justify-center py-5 sm:py-8"><div className="hero-orbit-wrap" aria-label="Floating product illustrations: cake, mithai, samosas and savoury rolls"><div className="hero-orbit-halo"></div><div className="hero-orbit-ring hero-orbit-ring-one"></div><div className="hero-orbit-ring hero-orbit-ring-two"></div><div className="hero-orbit-center"><span className="hero-center-star">✦</span><img src="/flavour-logo-light.svg" alt=""/><span>MADE FOR YOUR MOMENTS</span></div><div className="hero-orbit-item orbit-cake"><div className="hero-orbit-art"><img src="/products/cake.svg" alt="Chocolate cream cake"/></div></div><div className="hero-orbit-item orbit-mithai"><div className="hero-orbit-art"><img src="/products/mithai.svg" alt="Traditional mithai"/></div></div><div className="hero-orbit-item orbit-samosa"><div className="hero-orbit-art"><img src="/products/samosa.svg" alt="Golden samosas"/></div></div><div className="hero-orbit-item orbit-savoury"><div className="hero-orbit-art"><img src="/products/savouries.svg" alt="Bakery savouries and rolls"/></div></div><span className="hero-orbit-spark spark-one">✦</span><span className="hero-orbit-spark spark-two">✧</span><span className="hero-orbit-spark spark-three">✦</span></div></div>
       </div>
     </section>
 
