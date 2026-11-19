@@ -19,6 +19,10 @@ section{scroll-margin-top:84px}
 .bakery-pattern{background-image:radial-gradient(circle at 20% 30%,rgba(215,173,117,.28) 0 1px,transparent 1.5px),radial-gradient(circle at 80% 70%,rgba(215,173,117,.18) 0 1px,transparent 1.5px),repeating-linear-gradient(135deg,transparent 0 26px,rgba(215,173,117,.06) 27px 28px);background-size:32px 32px,46px 46px,auto}
 .photo-placeholder{position:relative;isolation:isolate}
 .photo-placeholder:before{content:"";position:absolute;inset:12% 20% 25%;z-index:-1;border:1px solid rgba(99,48,71,.15);border-radius:50% 50% 42% 42%;background:linear-gradient(145deg,rgba(255,255,255,.35),rgba(99,48,71,.08))}
+.hero-carousel{position:absolute;inset:0;z-index:3}
+.hero-carousel-item{position:absolute;width:48%;display:flex;flex-direction:column;align-items:center;will-change:transform}
+.hero-carousel-item img{width:100%;height:auto;filter:drop-shadow(0 18px 16px rgba(0,0,0,.45))}
+.hero-carousel-item .hero-product-orbit-label{margin-top:-6px;transition:opacity .6s}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 
 /* Perspective orbit: each product grows as it rotates to the front */

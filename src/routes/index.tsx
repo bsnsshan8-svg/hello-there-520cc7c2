@@ -2,6 +2,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { MapPin, Phone, MessageCircle, Clock3, CakeSlice, Menu as MenuIcon, ChevronRight, Star, ShoppingBag, Croissant, Cookie, Soup, Coffee, Truck, CreditCard, Package, ArrowUpRight } from "lucide-react";
 import { shop } from "../data/shop";
+import cakeImg from "@/assets/cake.png.asset.json";
+import mithaiImg from "@/assets/mithai.png.asset.json";
+import samosaImg from "@/assets/samosa.png.asset.json";
+import savouriesImg from "@/assets/savouries.png.asset.json";
+
+const products = [
+  { name: "Cakes", src: cakeImg.url },
+  { name: "Mithai", src: mithaiImg.url },
+  { name: "Samosas", src: samosaImg.url },
+  { name: "Savouries", src: savouriesImg.url },
+];
+const ROTATION_SECONDS = 36;
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
@@ -49,7 +61,7 @@ function Index() {
       <div className="absolute inset-0 bakery-pattern opacity-30"/>
       <div className="absolute -right-24 top-0 h-[520px] w-[520px] rounded-full border border-[#D7AD75]/20"/>
       <div className="absolute -right-12 top-12 h-[420px] w-[420px] rounded-full border border-[#D7AD75]/15"/>
-      <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-5 py-14 sm:py-20 lg:grid-cols-[1fr_.95fr] lg:px-8 lg:py-20">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-5 py-14 sm:py-20 md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_.95fr] lg:px-8 lg:py-20">
         <div className="relative z-10">
           <div className="mb-6 inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[.24em] text-[#D7AD75]"><span className="h-px w-8 bg-[#D7AD75]"/> Mithai · Bakery · Refreshments</div>
           <h1 className="max-w-2xl font-serif text-5xl font-bold leading-[.99] tracking-tight sm:text-6xl lg:text-[4.5rem]">A little sweetness.<br/><em className="text-[#E5BD80]">A lot of flavour.</em></h1>
@@ -66,14 +78,7 @@ function Index() {
             <div className="hero-product-orbit-ring hero-product-orbit-ring-a"/>
             <div className="hero-product-orbit-ring hero-product-orbit-ring-b"/>
             <div className="hero-product-orbit-center"><span>✦</span><img src="/flavour-logo-light.svg" alt="Flavour Sweets & Bakers"/><small>SOAN GARDEN · ISLAMABAD</small></div>
-            <div className="hero-product-orbit-perspective">
-              <div className="hero-product-orbit-spinner">
-                <ProductOrbitItem name="Cakes" file="cake.webp" angle="0deg"/>
-                <ProductOrbitItem name="Mithai" file="mithai.webp" angle="90deg"/>
-                <ProductOrbitItem name="Samosas" file="samosa.webp" angle="180deg"/>
-                <ProductOrbitItem name="Savouries" file="savouries.webp" angle="270deg"/>
-              </div>
-            </div>
+            <ProductCarousel/>
             <span className="hero-product-orbit-star orbit-star-a">✦</span><span className="hero-product-orbit-star orbit-star-b">✧</span><span className="hero-product-orbit-star orbit-star-c">✦</span>
           </div>
         </div>
@@ -119,7 +124,28 @@ function Index() {
     <div className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-3 border-t border-[#D7AD75]/40 bg-[#FBF5EA] p-2 shadow-[0_-8px_30px_rgba(42,35,32,.12)] md:hidden"><a href={phone} onClick={()=>track("click_call","mobile_bar","mobile_bar")} className="flex min-h-12 items-center justify-center gap-2 rounded-xl text-xs font-extrabold text-[#633047]"><Phone size={16}/> Call</a><a href={wa} onClick={()=>track("click_whatsapp","general","mobile_bar")} className="flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#633047] text-xs font-extrabold text-white"><MessageCircle size={16}/> WhatsApp</a><a href={directions} onClick={()=>track("click_directions","mobile_bar","mobile_bar")} className="flex min-h-12 items-center justify-center gap-2 rounded-xl text-xs font-extrabold text-[#633047]"><MapPin size={16}/> Directions</a></div>
   </main>;
 }
-function ProductOrbitItem({name,file,angle}:{name:string;file:string;angle:string}){return <div className="hero-product-orbit-item" style={{"--item-angle":angle} as React.CSSProperties}><div className="hero-product-orbit-photo"><span className="hero-product-orbit-placeholder">ADD PHOTO<span>{file}</span></span><img src={`/products/${file}`} alt={name} loading="eager" onError={(e)=>{e.currentTarget.style.display="none"}}/></div><span className="hero-product-orbit-label">{name}</span></div>}
+function ProductCarousel(){
+  const [angle,setAngle]=useState(0);
+  useEffect(()=>{
+    if(window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let raf=0,last=performance.now(),paused=false;
+    const el=document.querySelector(".hero-product-orbit");
+    const on=()=>{paused=true},off=()=>{paused=false};
+    el?.addEventListener("mouseenter",on);el?.addEventListener("mouseleave",off);
+    const tick=(t:number)=>{const dt=t-last;last=t;if(!paused)setAngle(a=>(a+dt/1000*(360/ROTATION_SECONDS))%360);raf=requestAnimationFrame(tick)};
+    raf=requestAnimationFrame(tick);
+    return ()=>{cancelAnimationFrame(raf);el?.removeEventListener("mouseenter",on);el?.removeEventListener("mouseleave",off)};
+  },[]);
+  return <div className="hero-carousel">{products.map((p,i)=>{
+    const rad=((angle+i*90)*Math.PI)/180;
+    const depth=(Math.cos(rad)+1)/2; // 1 = front, 0 = back
+    const x=Math.sin(rad)*30, y=(depth-0.5)*22;
+    const scale=0.45+depth*0.85;
+    return <div key={p.name} className="hero-carousel-item" style={{transform:`translate(-50%,-50%) scale(${scale})`,left:`${50+x}%`,top:`${50+y*0.6}%`,zIndex:Math.round(depth*100),opacity:0.45+depth*0.55,filter:`blur(${(1-depth)*1.5}px)`}}>
+      <img src={p.src} alt={p.name} loading="eager"/>
+      <span className="hero-product-orbit-label" style={{opacity:depth>0.8?1:0}}>{p.name}</span>
+    </div>})}</div>;
+}
 function HeroMini({icon,title,sub}:{icon:React.ReactNode;title:string;sub:string}){return <div className="flex flex-col items-center gap-2 border-r border-[#D7AD75]/20 px-2 text-center last:border-0"><span className="text-[#D7AD75]">{icon}</span><span className="text-[10px] font-extrabold leading-tight text-[#FBF5EA] sm:text-xs">{title}<br/>{sub}</span></div>}
 function SweetIllustration({kind}:{kind:"mithai"|"cake"|"samosa"}){return <div className="flex h-20 w-20 items-center justify-center rounded-2xl border border-[#D7AD75]/50 bg-gradient-to-br from-[#E9C58E] to-[#A66A42] text-[#633047] shadow-xl sm:h-28 sm:w-28">{kind==="cake"?<CakeSlice size={52} strokeWidth={1.2}/>:kind==="mithai"?<Cookie size={52} strokeWidth={1.2}/>:<Croissant size={52} strokeWidth={1.2}/>}</div>}
 function InfoTile({icon,title,detail}:{icon:React.ReactNode;title:string;detail:string}){return <div className="flex items-center gap-3 bg-[#633047] px-4 py-5 text-[#FBF5EA] sm:px-6"><span className="text-[#E5BD80]">{icon}</span><div><p className="text-[11px] font-extrabold">{title}</p><p className="mt-1 text-[10px] leading-4 text-white/75">{detail}</p></div></div>}
