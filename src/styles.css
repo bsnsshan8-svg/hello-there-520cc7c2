@@ -1,21 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
 @custom-variant dark (&:is(.dark *));
 @theme inline {
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Playfair Display", Georgia, serif;
-  --color-background: #FFF8EE;
-  --color-foreground: #2A2320;
-  --color-primary: #7A1F2B;
-  --color-primary-foreground: #FFF8EE;
-  --color-border: #eadbca;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --color-background: #FBF5EA;
+  --color-foreground: #302323;
+  --color-primary: #633047;
+  --color-primary-foreground: #FBF5EA;
+  --color-border: #E8D8C9;
 }
-:root { font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif; color: #2A2320; background: #FFF8EE; font-synthesis: none; text-rendering: optimizeLegibility; }
+:root { font-family: "Manrope", ui-sans-serif, system-ui, sans-serif; color: #302323; background: #FBF5EA; font-synthesis: none; text-rendering: optimizeLegibility; }
 html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-body { margin: 0; min-width: 320px; background: #FFF8EE; }
+body { margin: 0; min-width: 320px; background: #FBF5EA; }
 * { box-sizing: border-box; }
-::selection { background: #F2A900; color: #2A2320; }
+::selection { background: #D7AD75; color: #302323; }
 a { text-decoration: none; }
 button, a { -webkit-tap-highlight-color: transparent; }
+h1,h2,h3,.font-serif { letter-spacing: -.025em; }
+section { scroll-margin-top: 84px; }
