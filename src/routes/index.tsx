@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MapPin, Phone, MessageCircle, Clock3, CakeSlice, Menu as MenuIcon, ChevronRight, Star, ShoppingBag, Croissant, Cookie, Soup, Coffee, Truck, CreditCard, Package, ArrowUpRight } from "lucide-react";
 import { shop } from "../data/shop";
 import cakeImg from "@/assets/cake.png.asset.json";
@@ -13,7 +13,7 @@ const products = [
   { name: "Samosas", src: samosaImg.url },
   { name: "Savouries", src: savouriesImg.url },
 ];
-const ROTATION_SECONDS = 36;
+const ROTATION_SECONDS = 24;
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
@@ -125,27 +125,36 @@ function Index() {
   </main>;
 }
 function ProductCarousel(){
-  const [angle,setAngle]=useState(0);
+  const wrap=useRef<HTMLDivElement>(null);
+  const items=useRef<(HTMLDivElement|null)[]>([]);
   useEffect(()=>{
-    if(window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let raf=0,last=performance.now(),paused=false;
-    const el=document.querySelector(".hero-product-orbit");
+    const box=wrap.current; if(!box) return;
+    const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let raf=0,last=performance.now(),angle=0,paused=false;
     const on=()=>{paused=true},off=()=>{paused=false};
-    el?.addEventListener("mouseenter",on);el?.addEventListener("mouseleave",off);
-    const tick=(t:number)=>{const dt=t-last;last=t;if(!paused)setAngle(a=>(a+dt/1000*(360/ROTATION_SECONDS))%360);raf=requestAnimationFrame(tick)};
-    raf=requestAnimationFrame(tick);
-    return ()=>{cancelAnimationFrame(raf);el?.removeEventListener("mouseenter",on);el?.removeEventListener("mouseleave",off)};
+    box.addEventListener("mouseenter",on);box.addEventListener("mouseleave",off);
+    const draw=()=>{
+      const w=box.clientWidth,h=box.clientHeight;
+      items.current.forEach((el,i)=>{ if(!el) return;
+        const rad=((angle+i*90)*Math.PI)/180;
+        const depth=(Math.cos(rad)+1)/2;
+        const x=Math.sin(rad)*w*0.3, y=(depth-0.5)*h*0.13;
+        el.style.transform=`translate3d(${x}px,${y}px,0) translate(-50%,-50%) scale(${0.45+depth*0.85})`;
+        el.style.zIndex=String(Math.round(depth*100));
+        el.style.opacity=String(0.45+depth*0.55);
+        const label=el.lastElementChild as HTMLElement|null; if(label) label.style.opacity=depth>0.85?"1":"0";
+      });
+    };
+    const tick=(t:number)=>{const dt=Math.min(t-last,50);last=t;if(!paused)angle=(angle+dt/1000*(360/ROTATION_SECONDS))%360;draw();raf=requestAnimationFrame(tick)};
+    draw(); if(!reduce) raf=requestAnimationFrame(tick);
+    return ()=>{cancelAnimationFrame(raf);box.removeEventListener("mouseenter",on);box.removeEventListener("mouseleave",off)};
   },[]);
-  return <div className="hero-carousel">{products.map((p,i)=>{
-    const rad=((angle+i*90)*Math.PI)/180;
-    const depth=(Math.cos(rad)+1)/2; // 1 = front, 0 = back
-    const x=Math.sin(rad)*30, y=(depth-0.5)*22;
-    const scale=0.45+depth*0.85;
-    return <div key={p.name} className="hero-carousel-item" style={{transform:`translate(-50%,-50%) scale(${scale})`,left:`${50+x}%`,top:`${50+y*0.6}%`,zIndex:Math.round(depth*100),opacity:0.45+depth*0.55,filter:`blur(${(1-depth)*1.5}px)`}}>
-      <img src={p.src} alt={p.name} loading="eager"/>
-      <span className="hero-product-orbit-label" style={{opacity:depth>0.8?1:0}}>{p.name}</span>
-    </div>})}</div>;
+  return <div ref={wrap} className="hero-carousel">{products.map((p,i)=><div key={p.name} ref={el=>{items.current[i]=el}} className="hero-carousel-item">
+      <img src={p.src} alt={p.name} loading="eager" decoding="async"/>
+      <span className="hero-product-orbit-label">{p.name}</span>
+    </div>)}</div>;
 }
+
 function HeroMini({icon,title,sub}:{icon:React.ReactNode;title:string;sub:string}){return <div className="flex flex-col items-center gap-2 border-r border-[#D7AD75]/20 px-2 text-center last:border-0"><span className="text-[#D7AD75]">{icon}</span><span className="text-[10px] font-extrabold leading-tight text-[#FBF5EA] sm:text-xs">{title}<br/>{sub}</span></div>}
 function SweetIllustration({kind}:{kind:"mithai"|"cake"|"samosa"}){return <div className="flex h-20 w-20 items-center justify-center rounded-2xl border border-[#D7AD75]/50 bg-gradient-to-br from-[#E9C58E] to-[#A66A42] text-[#633047] shadow-xl sm:h-28 sm:w-28">{kind==="cake"?<CakeSlice size={52} strokeWidth={1.2}/>:kind==="mithai"?<Cookie size={52} strokeWidth={1.2}/>:<Croissant size={52} strokeWidth={1.2}/>}</div>}
 function InfoTile({icon,title,detail}:{icon:React.ReactNode;title:string;detail:string}){return <div className="flex items-center gap-3 bg-[#633047] px-4 py-5 text-[#FBF5EA] sm:px-6"><span className="text-[#E5BD80]">{icon}</span><div><p className="text-[11px] font-extrabold">{title}</p><p className="mt-1 text-[10px] leading-4 text-white/75">{detail}</p></div></div>}
