@@ -60,7 +60,24 @@ function Index() {
           <div className="mt-9 flex flex-wrap gap-3"><ActionLink href={phone} kind="gold" event="click_call" label="hero" section="hero"><Phone size={17}/> Call now</ActionLink><ActionLink href={wa} kind="light" event="click_whatsapp" label="general" section="hero"><MessageCircle size={17}/> WhatsApp <span className="text-[10px]">[CONFIRM NUMBER]</span></ActionLink><ActionLink href={directions} kind="outline" event="click_directions" label="hero" section="hero"><MapPin size={17}/> Get directions</ActionLink></div>
           <div className="mt-6 flex flex-wrap items-center gap-3 text-xs font-semibold text-[#F6E7D2]/80"><span className={`rounded-full px-3 py-2 ${isOpen?"bg-emerald-100 text-emerald-900":"bg-white/10 text-[#F6E7D2]"}`}>{isOpen?"● Open now":"● Closed right now"}</span><span>Every day · 7 AM – 1:30 AM</span><span className="text-[#E5BD80]">Friday: [CONFIRM]</span></div>
         </div>
-        <div className="relative mx-auto flex w-full max-w-[590px] items-center justify-center py-5 sm:py-8"><div className="hero-orbit-wrap" aria-label="Floating product illustrations: cake, mithai, samosas and savoury rolls"><div className="hero-orbit-halo"></div><div className="hero-orbit-ring hero-orbit-ring-one"></div><div className="hero-orbit-ring hero-orbit-ring-two"></div><div className="hero-orbit-center"><span className="hero-center-star">✦</span><img src="/flavour-logo-light.svg" alt=""/><span>MADE FOR YOUR MOMENTS</span></div><div className="hero-orbit-item orbit-cake"><div className="hero-orbit-art"><img src="/products/cake.svg" alt="Chocolate cream cake"/></div></div><div className="hero-orbit-item orbit-mithai"><div className="hero-orbit-art"><img src="/products/mithai.svg" alt="Traditional mithai"/></div></div><div className="hero-orbit-item orbit-samosa"><div className="hero-orbit-art"><img src="/products/samosa.svg" alt="Golden samosas"/></div></div><div className="hero-orbit-item orbit-savoury"><div className="hero-orbit-art"><img src="/products/savouries.svg" alt="Bakery savouries and rolls"/></div></div><span className="hero-orbit-spark spark-one">✦</span><span className="hero-orbit-spark spark-two">✧</span><span className="hero-orbit-spark spark-three">✦</span></div></div>
+        <div className="relative mx-auto flex w-full max-w-[590px] items-center py-8 lg:py-10">
+          <div className="hero-revolver" aria-label="Horizontal product image carousel">
+            <div className="hero-revolver-heading"><span>THE FLAVOUR COLLECTION</span><span className="hero-revolver-line"/></div>
+            <div className="hero-revolver-window">
+              <div className="hero-revolver-track">
+                <ProductSlide name="Cakes" file="cake.webp" />
+                <ProductSlide name="Mithai" file="mithai.webp" />
+                <ProductSlide name="Samosas" file="samosa.webp" />
+                <ProductSlide name="Savouries" file="savouries.webp" />
+                <ProductSlide name="Cakes" file="cake.webp" />
+                <ProductSlide name="Mithai" file="mithai.webp" />
+                <ProductSlide name="Samosas" file="samosa.webp" />
+                <ProductSlide name="Savouries" file="savouries.webp" />
+              </div>
+            </div>
+            <div className="hero-revolver-footer"><span>FRESHLY MADE · READY TO SHARE</span><span className="hero-revolver-dots"><i/><i/><i/><i/></span></div>
+          </div>
+        </div>
       </div>
     </section>
 
