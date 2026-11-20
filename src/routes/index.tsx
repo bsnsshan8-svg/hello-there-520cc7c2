@@ -86,7 +86,7 @@ function Index() {
             <div className="hero-product-orbit-glow"/>
             <div className="hero-product-orbit-ring hero-product-orbit-ring-a"/>
             <div className="hero-product-orbit-ring hero-product-orbit-ring-b"/>
-            <div className="hero-product-orbit-center"><span>✦</span><img src={logoImg.url} alt="Flavour Sweets & Bakers"/><small>SOAN GARDEN · ISLAMABAD</small></div>
+            <div className="hero-product-orbit-center"><span>✦</span><small>SOAN GARDEN · ISLAMABAD</small></div>
             <ProductCarousel/>
             <span className="hero-product-orbit-star orbit-star-a">✦</span><span className="hero-product-orbit-star orbit-star-b">✧</span><span className="hero-product-orbit-star orbit-star-c">✦</span>
           </div>
