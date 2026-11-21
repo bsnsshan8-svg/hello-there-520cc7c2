@@ -20,3 +20,7 @@ describe("Shop facts confirmed by the owner", () => {
     expect(shop.delivery.toLowerCase()).toContain("soan garden");
   });
 });
+
+it("custom cake and bulk mithai orders need 2 days lead time", () => {
+  expect(shop.orderLeadTimeDays).toBe(2);
+});

@@ -110,7 +110,7 @@ function Index() {
     <section className="mx-auto max-w-7xl px-5 pt-14 lg:px-8 lg:pt-16">
       <div className="grid gap-8 lg:grid-cols-[1.1fr_.9fr] lg:items-center">
         <div className="relative overflow-hidden rounded-[2rem] border border-[#D7AD75]/40 shadow-xl">
-          <img src={ownerPortrait.url} alt="The owner of Flavour Sweets & Bakers standing behind the shop counter" loading="lazy" className="aspect-[16/10] w-full object-cover object-center"/>
+          <img src={ownerPortrait.url} alt="The owner of Flavour Sweets & Bakers standing behind the shop counter" loading="lazy" className="aspect-square w-full object-cover object-center"/>
           <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#32131F]/85 via-[#32131F]/35 to-transparent px-5 pb-4 pt-14">
             <p className="font-serif text-2xl font-bold text-[#FBF5EA] sm:text-3xl">Haji Gulzar Ahmed</p>
             <p className="mt-1 text-[11px] font-extrabold uppercase tracking-[.22em] text-[#E5BD80]">Owner · Flavour Sweets &amp; Bakers</p>
@@ -122,6 +122,33 @@ function Index() {
           <DecorativeRule/>
           <p className="mt-6 text-[15px] leading-8 text-[#5A4E49]">Behind this counter, every sweet, cake and samosa at Flavour Sweets &amp; Bakers is prepared fresh and served with pride.</p>
           <p className="mt-5 text-sm font-bold text-[#633047]">Open every day · 7 AM – 1:30 AM · Soan Garden, Islamabad</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="story" className="mx-auto max-w-7xl px-5 pt-16 lg:px-8 lg:pt-20">
+      <div className="overflow-hidden rounded-[2rem] border border-[#D7AD75]/40 bg-[#FBF5EA] shadow-lg">
+        <div className="grid gap-10 p-8 sm:p-12 lg:grid-cols-[1.05fr_.95fr]">
+          <div>
+            <p className="text-[11px] font-extrabold uppercase tracking-[.25em] text-[#A46C3D]">The Story Behind Flavour</p>
+            <h2 className="mt-3 font-serif text-4xl font-bold leading-tight text-[#633047] sm:text-5xl">Passion, Experience &amp; Exceptional Taste</h2>
+            <DecorativeRule/>
+            <p className="mt-6 text-[15px] leading-8 text-[#5A4E49]">Founded in 2022 by Haji Gulzar Ahmed, Flavour Sweets &amp; Bakers and Refreshment Center is built on more than three decades of professional experience in the bakery and confectionery industry.</p>
+            <p className="mt-4 text-[15px] leading-8 text-[#5A4E49]">From working with renowned bakeries across Pakistan, including the prestigious Serena Hotel Islamabad, to gaining 20 years of international experience in Saudi Arabia, Haji Gulzar Ahmed has transformed his passion and expertise into a brand dedicated to quality, freshness and exceptional taste.</p>
+            <p className="mt-4 text-[15px] leading-8 text-[#5A4E49]">Rooted in the values of honesty, dedication and hard work, Flavour offers a delightful variety of traditional Pakistani sweets, freshly baked products, cakes, pastries, snacks and fast food.</p>
+          </div>
+          <div className="flex flex-col justify-center gap-4">
+            <div className="rounded-2xl border border-[#D7AD75]/40 bg-white/60 p-6">
+              <p className="text-[11px] font-extrabold uppercase tracking-[.22em] text-[#A46C3D]">Our Promise</p>
+              <p className="mt-3 text-[15px] leading-7 text-[#5A4E49]">Pure ingredients, fresh products, hygienic preparation and customer satisfaction are at the heart of everything we do.</p>
+            </div>
+            <div className="grid grid-cols-3 gap-3 text-center">
+              <div className="rounded-2xl border border-[#D7AD75]/40 bg-white/60 p-4"><p className="font-serif text-3xl font-bold text-[#633047]">30+</p><p className="mt-1 text-[10px] font-extrabold uppercase tracking-[.14em] text-[#A46C3D]">Years of experience</p></div>
+              <div className="rounded-2xl border border-[#D7AD75]/40 bg-white/60 p-4"><p className="font-serif text-3xl font-bold text-[#633047]">20</p><p className="mt-1 text-[10px] font-extrabold uppercase tracking-[.14em] text-[#A46C3D]">Years in Saudi Arabia</p></div>
+              <div className="rounded-2xl border border-[#D7AD75]/40 bg-white/60 p-4"><p className="font-serif text-3xl font-bold text-[#633047]">2022</p><p className="mt-1 text-[10px] font-extrabold uppercase tracking-[.14em] text-[#A46C3D]">Flavour founded</p></div>
+            </div>
+            <p className="font-serif text-xl italic leading-8 text-[#633047]">“Flavour Sweets &amp; Bakers – Where Tradition Meets Taste and Quality Meets Trust!”</p>
+          </div>
         </div>
       </div>
     </section>
@@ -164,7 +191,7 @@ function Index() {
     <section id="orders" className="px-5 py-16 lg:py-20">
       <div className="mx-auto grid max-w-7xl overflow-hidden rounded-[2rem] bg-[#633047] shadow-xl lg:grid-cols-[.8fr_1.2fr]">
         <div className="relative min-h-[320px] overflow-hidden bg-[#32131F]"><img src={cakeWide.url} alt="Chocolate strawberry celebration cake" loading="lazy" className="absolute inset-0 h-full w-full object-cover"/><div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#32131F]/90 to-transparent p-6 text-center text-[#FBF5EA]"><p className="font-serif text-3xl font-bold">Made to celebrate</p><p className="mt-1 text-xs font-bold uppercase tracking-[.2em] text-[#E5BD80]">Custom cakes · Bulk mithai</p></div></div>
-        <div className="p-8 text-[#FBF5EA] sm:p-10"><p className="text-[11px] font-extrabold uppercase tracking-[.23em] text-[#E5BD80]">For special occasions</p><h2 className="mt-3 font-serif text-4xl font-bold leading-tight sm:text-5xl">Custom Cakes &<br/>Bulk Orders</h2><p className="mt-5 max-w-xl text-sm leading-7 text-white/80">Planning a birthday, a wedding or an office event? We take custom cake orders and bulk mithai orders. Tell us what you need and the date.</p><div className="mt-5 grid gap-3 text-sm sm:grid-cols-2"><p className="rounded-xl border border-white/15 bg-white/5 p-3"><CakeSlice className="mb-2 text-[#E5BD80]"/>Custom cake orders · Lead time [CONFIRM]</p><p className="rounded-xl border border-white/15 bg-white/5 p-3"><Package className="mb-2 text-[#E5BD80]"/>Bulk mithai orders · Lead time [CONFIRM]</p></div><p className="mt-4 text-xs text-[#E5BD80]">Please order [CONFIRM: number] days ahead. Delivery: free all over Soan Garden.</p><div className="mt-7 flex flex-wrap gap-3"><ActionLink href={wa} kind="gold" event="click_whatsapp" label="cake_bulk" section="orders"><MessageCircle size={17}/> WhatsApp about an order</ActionLink><ActionLink href={phone} kind="light" event="click_call" label="orders" section="orders"><Phone size={17}/> Call the shop</ActionLink></div></div>
+        <div className="p-8 text-[#FBF5EA] sm:p-10"><p className="text-[11px] font-extrabold uppercase tracking-[.23em] text-[#E5BD80]">For special occasions</p><h2 className="mt-3 font-serif text-4xl font-bold leading-tight sm:text-5xl">Custom Cakes &<br/>Bulk Orders</h2><p className="mt-5 max-w-xl text-sm leading-7 text-white/80">Planning a birthday, a wedding or an office event? We take custom cake orders and bulk mithai orders. Tell us what you need and the date.</p><div className="mt-5 grid gap-3 text-sm sm:grid-cols-2"><p className="rounded-xl border border-white/15 bg-white/5 p-3"><CakeSlice className="mb-2 text-[#E5BD80]"/>Custom cake orders · Order 2 days ahead</p><p className="rounded-xl border border-white/15 bg-white/5 p-3"><Package className="mb-2 text-[#E5BD80]"/>Bulk mithai orders · Order 2 days ahead</p></div><p className="mt-4 text-xs text-[#E5BD80]">Please order at least 2 days ahead. Delivery: free all over Soan Garden.</p><div className="mt-7 flex flex-wrap gap-3"><ActionLink href={wa} kind="gold" event="click_whatsapp" label="cake_bulk" section="orders"><MessageCircle size={17}/> WhatsApp about an order</ActionLink><ActionLink href={phone} kind="light" event="click_call" label="orders" section="orders"><Phone size={17}/> Call the shop</ActionLink></div></div>
       </div>
     </section>
 
