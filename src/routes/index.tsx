@@ -15,6 +15,7 @@ import teatimeWide from "@/assets/teatime-wide.png.asset.json";
 import samosasWide from "@/assets/samosas-wide.png.asset.json";
 import shopCounter from "@/assets/shop-counter.jpg.asset.json";
 import logoImg from "@/assets/flavour-logo.png.asset.json";
+import ownerPortrait from "@/assets/owner-portrait.jpg.asset.json";
 
 const products = [
   { name: "Cakes", src: cakeImg.url },
@@ -99,6 +100,24 @@ function Index() {
       <InfoTile icon={<Clock3/>} title="Opening hours" detail="7 AM – 1:30 AM daily"/>
       <InfoTile icon={<CreditCard/>} title="Payments" detail="Cash, card, JazzCash, Easypaisa"/>
       <InfoTile icon={<Truck/>} title="Delivery" detail={shop.delivery}/>
+    </section>
+
+    <section className="mx-auto max-w-7xl px-5 pt-14 lg:px-8 lg:pt-16">
+      <div className="grid gap-8 lg:grid-cols-[1.1fr_.9fr] lg:items-center">
+        <div className="relative overflow-hidden rounded-[2rem] border border-[#D7AD75]/40 shadow-xl">
+          <img src={ownerPortrait.url} alt="The owner of Flavour Sweets & Bakers standing behind the shop counter" loading="lazy" className="aspect-[16/10] w-full object-cover object-center"/>
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#32131F]/85 via-[#32131F]/35 to-transparent px-5 pb-4 pt-14">
+            <p className="text-[11px] font-extrabold uppercase tracking-[.22em] text-[#E5BD80]">Soan Garden · Islamabad</p>
+          </div>
+        </div>
+        <div>
+          <p className="text-[11px] font-extrabold uppercase tracking-[.25em] text-[#A46C3D]">A warm welcome</p>
+          <h2 className="mt-3 font-serif text-4xl font-bold leading-tight text-[#633047] sm:text-5xl">The face behind the counter</h2>
+          <DecorativeRule/>
+          <p className="mt-6 text-[15px] leading-8 text-[#5A4E49]">Behind this counter, every sweet, cake and samosa at Flavour Sweets &amp; Bakers is prepared fresh and served with pride.</p>
+          <p className="mt-5 text-sm font-bold text-[#633047]">Open every day · 7 AM – 1:30 AM · Soan Garden, Islamabad</p>
+        </div>
+      </div>
     </section>
 
     <section id="welcome" className="mx-auto max-w-7xl px-5 pt-16 lg:px-8 lg:pt-20">
