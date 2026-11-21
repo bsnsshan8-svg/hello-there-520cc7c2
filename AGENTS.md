@@ -28,3 +28,5 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Enhance documentary shop photos with non-generative resizing, tonal correction and sharpening so real products, people and signage remain unchanged.

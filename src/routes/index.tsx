@@ -6,16 +6,20 @@ import cakeImg from "@/assets/cake.png.asset.json";
 import mithaiImg from "@/assets/mithai.png.asset.json";
 import samosaImg from "@/assets/samosa.png.asset.json";
 import savouriesImg from "@/assets/savouries.png.asset.json";
-import samosaPlate from "@/assets/samosa-plate.jpg.asset.json";
 import mithaiPlatter from "@/assets/mithai-platter.jpg.asset.json";
 import savouryPlatter from "@/assets/savoury-platter.jpg.asset.json";
-import sweetsWide from "@/assets/sweets-wide.png.asset.json";
 import cakeWide from "@/assets/cake-wide.png.asset.json";
-import teatimeWide from "@/assets/teatime-wide.png.asset.json";
-import samosasWide from "@/assets/samosas-wide.png.asset.json";
-import shopCounter from "@/assets/shop-counter.jpg.asset.json";
 import logoImg from "@/assets/flavour-logo.png.asset.json";
 import ownerPortrait from "@/assets/owner-portrait.jpg.asset.json";
+
+import originalShop from "@/assets/original-shop-selection.webp.asset.json";
+import originalMithai from "@/assets/original-mithai-counter.webp.asset.json";
+import originalCakes from "@/assets/original-cake-counter.webp.asset.json";
+import originalBiscuits from "@/assets/original-biscuit-counter.webp.asset.json";
+import originalBakery from "@/assets/original-bakery-counter.webp.asset.json";
+import originalChaat from "@/assets/original-chaat-counter.webp.asset.json";
+import originalSnacks from "@/assets/original-snack-counter.webp.asset.json";
+import originalSavouries from "@/assets/original-savoury-counter.webp.asset.json";
 
 const products = [
   { name: "Cakes", src: cakeImg.url },
@@ -32,6 +36,7 @@ export const Route = createFileRoute("/")({
     { property: "og:title", content: "Flavour Sweets & Bakers | Soan Garden, Islamabad" },
     { property: "og:description", content: "Fresh mithai, cakes and samosas in Soan Garden, Islamabad." },
     { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary_large_image" },
   ] }),
   component: Index,
 });
@@ -163,7 +168,7 @@ function Index() {
       </div>
     </section>
 
-    <section id="photos" className="mx-auto max-w-7xl px-5 pb-16 lg:px-8 lg:pb-20"><div className="text-center"><p className="text-[11px] font-extrabold uppercase tracking-[.25em] text-[#A46C3D]">A peek inside</p><h2 className="mt-3 font-serif text-4xl font-bold text-[#633047] sm:text-5xl">Our shop & selections</h2><p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-[#665B55]">Mithai, cakes and savouries from our counter.</p></div><div className="mt-9 grid grid-cols-2 gap-3 md:grid-cols-4">{[["Our counter",shopCounter.url],["Mithai platter",mithaiPlatter.url],["Celebration cake",cakeWide.url],["Samosas & chutney",samosaPlate.url],["Assorted sweets",sweetsWide.url],["Tea-time treats",teatimeWide.url],["Savoury platter",savouryPlatter.url],["Fresh samosas",samosasWide.url]].map(([name,src])=><figure key={name} className="group relative aspect-[1.12] overflow-hidden rounded-2xl border border-[#D7AD75]/40 bg-[#32131F]"><img src={src} alt={name} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"/><figcaption className="absolute bottom-3 left-3 rounded-lg bg-[#FBF5EA]/90 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-wider text-[#633047]">{name}</figcaption></figure>)}</div></section>
+    <section id="photos" className="mx-auto max-w-7xl px-5 pb-16 lg:px-8 lg:pb-20"><div className="text-center"><p className="text-[11px] font-extrabold uppercase tracking-[.25em] text-[#A46C3D]">A peek inside</p><h2 className="mt-3 font-serif text-4xl font-bold text-[#633047] sm:text-5xl">Our shop & selections</h2><p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-[#665B55]">Mithai, cakes and savouries from our counter.</p></div><div className="mt-9 grid grid-cols-2 gap-3 md:grid-cols-4">{[["Our counter",originalShop.url],["Traditional mithai",originalMithai.url],["Fresh cakes",originalCakes.url],["Butter biscuits",originalBiscuits.url],["Bakery favourites",originalBakery.url],["Chaat & refreshments",originalChaat.url],["Samosas & pakoras",originalSnacks.url],["Savoury selections",originalSavouries.url]].map(([name,src])=><figure key={name} className="group relative aspect-[16/10] overflow-hidden rounded-2xl border border-[#D7AD75]/40 bg-[#32131F]"><img src={src} alt={name} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"/><figcaption className="absolute bottom-3 left-3 rounded-lg bg-[#FBF5EA]/90 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-wider text-[#633047]">{name}</figcaption></figure>)}</div></section>
 
     <section id="find-us" className="border-y border-[#D7AD75]/30 bg-[#F1E4D3]"><div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-[.9fr_1.1fr] lg:px-8 lg:py-20"><div><p className="text-[11px] font-extrabold uppercase tracking-[.25em] text-[#A46C3D]">Come say hello</p><h2 className="mt-3 font-serif text-4xl font-bold text-[#633047] sm:text-5xl">Visit our shop</h2><div className="mt-8 space-y-6"><ContactRow icon={<MapPin/>} title="Address"><p>H Block Main Double Road, Gate #2, Soan Garden, H Block Extension, Islamabad 45700</p><small>Landmark: [CONFIRM]</small></ContactRow><ContactRow icon={<Phone/>} title="Call the shop"><a href={phone} onClick={()=>track("click_call","find_us","find_us")}>{shop.phone}</a></ContactRow><ContactRow icon={<Clock3/>} title="Opening hours"><p>Every day: 7:00 AM – 1:30 AM</p><small>Friday: same hours</small></ContactRow></div><div className="mt-8 flex flex-wrap gap-3"><ActionLink href={directions} event="click_directions" label="find_us" section="find_us"><MapPin size={17}/> Get directions</ActionLink><ActionLink href={shop.reviewUrl} kind="outline" event="click_review" label="google_review" section="find_us"><Star size={17}/> Leave a Google review</ActionLink></div></div><div className="overflow-hidden rounded-[2rem] border border-[#D7AD75]/50 bg-[#E7D9C8] p-2 shadow-lg"><iframe title="Map showing Flavour Sweets & Bakers in Soan Garden, Islamabad" src="https://www.google.com/maps?q=33.5560193,73.1650735&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="h-full min-h-[350px] w-full rounded-[1.5rem] border-0"/></div></div></section>
 
