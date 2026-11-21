@@ -107,7 +107,8 @@ function Index() {
         <div className="relative overflow-hidden rounded-[2rem] border border-[#D7AD75]/40 shadow-xl">
           <img src={ownerPortrait.url} alt="The owner of Flavour Sweets & Bakers standing behind the shop counter" loading="lazy" className="aspect-[16/10] w-full object-cover object-center"/>
           <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#32131F]/85 via-[#32131F]/35 to-transparent px-5 pb-4 pt-14">
-            <p className="text-[11px] font-extrabold uppercase tracking-[.22em] text-[#E5BD80]">Soan Garden · Islamabad</p>
+            <p className="font-serif text-2xl font-bold text-[#FBF5EA] sm:text-3xl">Haji Gulzar Ahmed</p>
+            <p className="mt-1 text-[11px] font-extrabold uppercase tracking-[.22em] text-[#E5BD80]">Owner · Flavour Sweets &amp; Bakers</p>
           </div>
         </div>
         <div>
