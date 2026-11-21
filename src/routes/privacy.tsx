@@ -1,5 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-export const Route = createFileRoute("/privacy")({ component: Privacy });
+export const Route = createFileRoute("/privacy")({
+ head: () => ({ meta: [
+  { title: "Privacy Notice | Flavour Sweets & Bakers" },
+  { name: "description", content: "Privacy and contact information for Flavour Sweets & Bakers in Soan Garden, Islamabad." },
+  { property: "og:title", content: "Privacy Notice | Flavour Sweets & Bakers" },
+  { property: "og:description", content: "Privacy and contact information for Flavour Sweets & Bakers in Soan Garden, Islamabad." },
+  { property: "og:type", content: "website" },
+  { name: "twitter:card", content: "summary_large_image" },
+ ] }),
+ component: Privacy,
+});
 function Privacy() {
  return <main className="min-h-screen bg-[#FFF8EE] px-5 py-16 text-[#2A2320]"><article className="mx-auto max-w-2xl"><Link to="/" className="text-sm font-semibold text-[#7A1F2B]">← Back to home</Link><p className="mt-10 text-xs font-bold uppercase tracking-[.2em] text-[#7A1F2B]">Flavour Sweets & Bakers</p><h1 className="mt-3 font-serif text-4xl font-semibold">Privacy notice</h1><p className="mt-6 leading-8 text-[#62554D]">This website provides information about Flavour Sweets & Bakers. It does not currently include enquiry forms or ask visitors to submit personal details.</p><h2 className="mt-8 font-serif text-2xl font-semibold">Analytics</h2><p className="mt-3 leading-8 text-[#62554D]">Analytics is not configured on this website yet. If analytics is added later, this notice should be updated to explain what is collected and how it is used.</p><h2 className="mt-8 font-serif text-2xl font-semibold">Contact</h2><p className="mt-3 leading-8 text-[#62554D]">Flavour Sweets & Bakers<br/>H Block Main Double Road, Gate #2, Soan Garden, Islamabad 45700<br/>Phone: +92 306 5833000</p></article></main>;
 }
